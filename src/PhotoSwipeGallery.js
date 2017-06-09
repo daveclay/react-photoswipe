@@ -48,8 +48,13 @@ class PhotoSwipeGallery extends React.Component {
   };
 
   handleClose = () => {
+    let {onClose} = this.props;
     this.setState({
       isOpen: false
+    }, () => {
+      if (onClose) {
+        onClose();
+      }
     });
   };
 
